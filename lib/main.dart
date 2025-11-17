@@ -14,11 +14,12 @@ class BMICalculator extends StatelessWidget {
         colorScheme: ColorScheme.dark().copyWith(
           primary: const Color.fromARGB(255, 125, 133, 176),
           onPrimary: const Color.fromARGB(255, 131, 137, 164),
-          surface: const Color(0xFF1D1E33),
+          surface: Color(0xFF090C22),
         ),
         useMaterial3: true,
       ),
-      home: const InputPage(),
     );
+    home:
+    InputPage();
   }
 }
