@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+// Constants
+const buttomContainerHeight = 80.0;
+const activeCardColour = Color(0xFF1D1E33);
+const bottomContainerColour = Color(0xFFEB1555);
+
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
 
@@ -13,23 +18,29 @@ class _InputPageState extends State<InputPage> {
     return Scaffold(
       appBar: AppBar(title: Center(child: const Text('BMI CALCULATOR'))),
       body: Column(
-        children: <Widget>[
+        children: [
           Expanded(
             child: Row(
               children: [
-                Expanded(child: ReuseableCard(colour: Color(0xFF1D1E33))),
-                Expanded(child: ReuseableCard(colour: Color(0xFF1D1E33))),
+                Expanded(child: ReusableCard(colours: activeCardColour)),
+                Expanded(child: ReusableCard(colours: activeCardColour)),
               ],
             ),
           ),
-          Expanded(child: ReuseableCard(colour: Color(0xFF1D1E33))),
+          Expanded(child: ReusableCard(colours: activeCardColour)),
           Expanded(
             child: Row(
               children: [
-                Expanded(child: ReuseableCard(colour: Color(0xFF1D1E33))),
-                Expanded(child: ReuseableCard(colour: Color(0xFF1D1E33))),
+                Expanded(child: ReusableCard(colours: activeCardColour)),
+                Expanded(child: ReusableCard(colours: activeCardColour)),
               ],
             ),
+          ),
+          Container(
+            color: bottomContainerColour,
+            margin: EdgeInsets.only(top: 10),
+            width: double.infinity,
+            height: buttomContainerHeight,
           ),
         ],
       ),
@@ -37,18 +48,19 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class ReuseableCard extends StatelessWidget {
-  ReuseableCard({required this.colour});
-  Color colour;
+class ReusableCard extends StatelessWidget {
+  const ReusableCard({required this.colours});
+
+  final Color colours;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: colour,
-      ),
       margin: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: colours,
+        borderRadius: BorderRadius.circular(15),
+      ),
     );
   }
 }
