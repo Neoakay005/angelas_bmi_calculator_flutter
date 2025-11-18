@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'reusable_card.dart';
+import 'icon_content.dart';
 
 // Constants
 const buttomContainerHeight = 80.0;
@@ -61,44 +63,6 @@ class _InputPageState extends State<InputPage> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class IconContent extends StatelessWidget {
-  const IconContent({required this.icon, required this.gender});
-
-  final IconData icon;
-  final String gender;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(icon, size: 80),
-        Padding(padding: EdgeInsets.only(bottom: 15)),
-        Text(gender, style: TextStyle(fontSize: 18, color: Color(0xFF8D8E98))),
-      ],
-    );
-  }
-}
-
-class ReusableCard extends StatelessWidget {
-  const ReusableCard({required this.colours, this.cardChild});
-
-  final Color colours;
-  final Widget? cardChild;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: colours,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: cardChild,
     );
   }
 }
