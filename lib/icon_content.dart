@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-const lableTextStyle = TextStyle(fontSize: 18, color: Color(0xFF8D8E98));
+import 'constants.dart';
 
 class IconContent extends StatelessWidget {
   const IconContent({super.key, required this.icon, required this.gender});
@@ -15,7 +14,7 @@ class IconContent extends StatelessWidget {
       children: [
         Icon(icon, size: 80),
         Padding(padding: EdgeInsets.only(bottom: 15)),
-        Text(gender, style: lableTextStyle),
+        Text(gender, style: kLableTextStyle),
       ],
     );
   }
