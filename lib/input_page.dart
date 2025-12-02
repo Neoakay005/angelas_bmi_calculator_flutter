@@ -16,6 +16,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
+  int weight = 60;
+  int age = 18;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class _InputPageState extends State<InputPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          // üst cinsiyet seçimi kartları
           Expanded(
             child: Row(
               children: [
@@ -62,6 +65,7 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
+          // boy seçim kartı
           Expanded(
             child: ReusableCard(
               colours: kActiveCardColour,
@@ -83,12 +87,8 @@ class _InputPageState extends State<InputPage> {
                       activeTrackColor: Colors.white,
                       inactiveTrackColor: Color(0xFF8D8E98),
                       thumbColor: Color(0xFFEB1555),
-                      thumbShape: RoundSliderThumbShape(
-                        enabledThumbRadius: 15,
-                      ),
-                      overlayShape: RoundSliderOverlayShape(
-                        overlayRadius: 30,
-                      ),
+                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
+                      overlayShape: RoundSliderOverlayShape(overlayRadius: 30),
                       overlayColor: Color(0x26EB1555),
                     ),
                     child: Slider(
@@ -106,11 +106,34 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
           ),
+          // ağırlık ve yaş kartları
           Expanded(
             child: Row(
               children: [
-                Expanded(child: ReusableCard(colours: kActiveCardColour)),
-                Expanded(child: ReusableCard(colours: kActiveCardColour)),
+                Expanded(
+                  child: ReusableCard(
+                    colours: kActiveCardColour,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("WEIGHT", style: kLableTextStyle),
+                        Text(weight.toString(), style: kLableNumberStyle),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ReusableCard(
+                    colours: kActiveCardColour,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("AGE", style: kLableTextStyle),
+                        Text(age.toString(), style: kLableNumberStyle),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
