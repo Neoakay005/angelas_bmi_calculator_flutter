@@ -152,6 +152,28 @@ class _InputPageState extends State<InputPage> {
                       children: <Widget>[
                         Text("AGE", style: kLableTextStyle),
                         Text(age.toString(), style: kLableNumberStyle),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            SizedBox(width: 15),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -159,11 +181,29 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kBottomContainerColour,
-            margin: EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: kButtomContainerHeight,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/results_page');
+            },
+            child: Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "CALCULATE",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              color: kBottomContainerColour,
+              margin: EdgeInsets.only(top: 10),
+              width: double.infinity,
+              height: kButtomContainerHeight,
+            ),
           ),
         ],
       ),
@@ -172,7 +212,11 @@ class _InputPageState extends State<InputPage> {
 }
 
 class RoundIconButton extends StatelessWidget {
-  const RoundIconButton({required this.icon, required this.onPressed, super.key});
+  const RoundIconButton({
+    required this.icon,
+    required this.onPressed,
+    super.key,
+  });
 
   final IconData icon;
   final void Function() onPressed;

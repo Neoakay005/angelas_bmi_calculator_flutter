@@ -1,5 +1,7 @@
+import 'package:angelas_bmi_calculator_flutter/results_page.dart';
 import 'package:flutter/material.dart';
 import 'input_page.dart';
+import 'results_page.dart';
 
 void main() => runApp(const BMICalculator());
 
@@ -18,7 +20,11 @@ class BMICalculator extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const InputPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => InputPage(),
+        '/results_page': (context) => ResultsPage(),
+      },
     );
   }
 }
